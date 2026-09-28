@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Privacy - Camera Usage Description (NSCameraUsageDescription)</key>
+	<string>SoulMates needs access to your camera to take and share selfies with your partner.</string>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<false/>
+	</dict>
+</dict>
+</plist>

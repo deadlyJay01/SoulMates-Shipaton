@@ -6,14 +6,92 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		691059A030650CB900C584DF /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 6910599F30650CB900C584DF /* RevenueCat */; };
+		691059A230650CB900C584DF /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 691059A130650CB900C584DF /* RevenueCatUI */; };
+		694DC31B305A60670042AF0F /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 694DC31A305A60670042AF0F /* Auth */; };
+		694DC31D305A60670042AF0F /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 694DC31C305A60670042AF0F /* Functions */; };
+		694DC31F305A60670042AF0F /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 694DC31E305A60670042AF0F /* PostgREST */; };
+		694DC321305A60670042AF0F /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 694DC320305A60670042AF0F /* Realtime */; };
+		694DC323305A60670042AF0F /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 694DC322305A60670042AF0F /* Storage */; };
+		694DC325305A60670042AF0F /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 694DC324305A60670042AF0F /* Supabase */; };
+		84080F3C3063F44E00DAFB4D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84080F3B3063F44E00DAFB4D /* WidgetKit.framework */; };
+		84080F3E3063F44E00DAFB4D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84080F3D3063F44E00DAFB4D /* SwiftUI.framework */; };
+		84080F493063F45100DAFB4D /* SoulMatesWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 84080F393063F44E00DAFB4D /* SoulMatesWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84080F473063F45100DAFB4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69CBB50830480CF100ED921E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84080F383063F44E00DAFB4D;
+			remoteInfo = SoulMatesWidgetsExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		84080F4E3063F45100DAFB4D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				84080F493063F45100DAFB4D /* SoulMatesWidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		69CBB51030480CF100ED921E /* SoulMates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoulMates.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69EAA74B3064F71A001C0299 /* SoulMatesWidgetsExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SoulMatesWidgetsExtensionDebug.entitlements; sourceTree = "<group>"; };
+		84080F393063F44E00DAFB4D /* SoulMatesWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SoulMatesWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		84080F3B3063F44E00DAFB4D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		84080F3D3063F44E00DAFB4D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		84080F4D3063F45100DAFB4D /* Exceptions for "SoulMatesWidgets" folder in "SoulMatesWidgetsExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 84080F383063F44E00DAFB4D /* SoulMatesWidgetsExtension */;
+		};
+		84080F513063F70400DAFB4D /* Exceptions for "SoulMatesWidgets" folder in "SoulMates" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				WidgetSharedData.swift,
+			);
+			target = 69CBB50F30480CF100ED921E /* SoulMates */;
+		};
+		846DD34C30628A7800D70E70 /* Exceptions for "SoulMates" folder in "SoulMates" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 69CBB50F30480CF100ED921E /* SoulMates */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		69CBB51230480CF100ED921E /* SoulMates */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				846DD34C30628A7800D70E70 /* Exceptions for "SoulMates" folder in "SoulMates" target */,
+			);
 			path = SoulMates;
+			sourceTree = "<group>";
+		};
+		84080F3F3063F44E00DAFB4D /* SoulMatesWidgets */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				84080F513063F70400DAFB4D /* Exceptions for "SoulMatesWidgets" folder in "SoulMates" target */,
+				84080F4D3063F45100DAFB4D /* Exceptions for "SoulMatesWidgets" folder in "SoulMatesWidgetsExtension" target */,
+			);
+			path = SoulMatesWidgets;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +101,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				694DC31F305A60670042AF0F /* PostgREST in Frameworks */,
+				694DC31D305A60670042AF0F /* Functions in Frameworks */,
+				691059A030650CB900C584DF /* RevenueCat in Frameworks */,
+				694DC325305A60670042AF0F /* Supabase in Frameworks */,
+				691059A230650CB900C584DF /* RevenueCatUI in Frameworks */,
+				694DC31B305A60670042AF0F /* Auth in Frameworks */,
+				694DC323305A60670042AF0F /* Storage in Frameworks */,
+				694DC321305A60670042AF0F /* Realtime in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84080F363063F44E00DAFB4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84080F3E3063F44E00DAFB4D /* SwiftUI.framework in Frameworks */,
+				84080F3C3063F44E00DAFB4D /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,7 +127,10 @@
 		69CBB50730480CF100ED921E = {
 			isa = PBXGroup;
 			children = (
+				69EAA74B3064F71A001C0299 /* SoulMatesWidgetsExtensionDebug.entitlements */,
 				69CBB51230480CF100ED921E /* SoulMates */,
+				84080F3F3063F44E00DAFB4D /* SoulMatesWidgets */,
+				84080F3A3063F44E00DAFB4D /* Frameworks */,
 				69CBB51130480CF100ED921E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +139,18 @@
 			isa = PBXGroup;
 			children = (
 				69CBB51030480CF100ED921E /* SoulMates.app */,
+				84080F393063F44E00DAFB4D /* SoulMatesWidgetsExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		84080F3A3063F44E00DAFB4D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84080F3B3063F44E00DAFB4D /* WidgetKit.framework */,
+				84080F3D3063F44E00DAFB4D /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,20 +163,52 @@
 				69CBB50C30480CF100ED921E /* Sources */,
 				69CBB50D30480CF100ED921E /* Frameworks */,
 				69CBB50E30480CF100ED921E /* Resources */,
+				84080F4E3063F45100DAFB4D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				84080F483063F45100DAFB4D /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				69CBB51230480CF100ED921E /* SoulMates */,
 			);
 			name = SoulMates;
 			packageProductDependencies = (
+				694DC31A305A60670042AF0F /* Auth */,
+				694DC31C305A60670042AF0F /* Functions */,
+				694DC31E305A60670042AF0F /* PostgREST */,
+				694DC320305A60670042AF0F /* Realtime */,
+				694DC322305A60670042AF0F /* Storage */,
+				694DC324305A60670042AF0F /* Supabase */,
+				6910599F30650CB900C584DF /* RevenueCat */,
+				691059A130650CB900C584DF /* RevenueCatUI */,
 			);
 			productName = SoulMates;
 			productReference = 69CBB51030480CF100ED921E /* SoulMates.app */;
 			productType = "com.apple.product-type.application";
+		};
+		84080F383063F44E00DAFB4D /* SoulMatesWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84080F4A3063F45100DAFB4D /* Build configuration list for PBXNativeTarget "SoulMatesWidgetsExtension" */;
+			buildPhases = (
+				84080F353063F44E00DAFB4D /* Sources */,
+				84080F363063F44E00DAFB4D /* Frameworks */,
+				84080F373063F44E00DAFB4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				84080F3F3063F44E00DAFB4D /* SoulMatesWidgets */,
+			);
+			name = SoulMatesWidgetsExtension;
+			packageProductDependencies = (
+			);
+			productName = SoulMatesWidgetsExtension;
+			productReference = 84080F393063F44E00DAFB4D /* SoulMatesWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -83,6 +223,9 @@
 					69CBB50F30480CF100ED921E = {
 						CreatedOnToolsVersion = 26.6;
 					};
+					84080F383063F44E00DAFB4D = {
+						CreatedOnToolsVersion = 26.6;
+					};
 				};
 			};
 			buildConfigurationList = 69CBB50B30480CF100ED921E /* Build configuration list for PBXProject "SoulMates" */;
@@ -94,18 +237,30 @@
 			);
 			mainGroup = 69CBB50730480CF100ED921E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				694DC319305A60670042AF0F /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				6910599E30650CB900C584DF /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 69CBB51130480CF100ED921E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				69CBB50F30480CF100ED921E /* SoulMates */,
+				84080F383063F44E00DAFB4D /* SoulMatesWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		69CBB50E30480CF100ED921E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84080F373063F44E00DAFB4D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +277,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84080F353063F44E00DAFB4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84080F483063F45100DAFB4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84080F383063F44E00DAFB4D /* SoulMatesWidgetsExtension */;
+			targetProxy = 84080F473063F45100DAFB4D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		69CBB51930480CF300ED921E /* Debug */ = {
@@ -249,15 +419,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SoulMates/SoulMates.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RK6V8YUW6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SoulMates/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "SoulMates needs access to your camera to capture live selfies for your partner.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "SoulMates needs access to your microphone to send voice notes.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "SoulMates needs access to your photo library to save and upload shared memories.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -265,6 +440,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jay.SoulMates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -280,15 +456,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SoulMates/SoulMates.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RK6V8YUW6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SoulMates/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "SoulMates needs access to your camera to capture live selfies for your partner.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "SoulMates needs access to your microphone to send voice notes.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "SoulMates needs access to your photo library to save and upload shared memories.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,9 +477,71 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jay.SoulMates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		84080F4B3063F45100DAFB4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = SoulMatesWidgetsExtensionDebug.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RK6V8YUW6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SoulMatesWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SoulMatesWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jay.SoulMates.SoulMatesWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84080F4C3063F45100DAFB4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RK6V8YUW6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SoulMatesWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SoulMatesWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jay.SoulMates.SoulMatesWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
@@ -327,7 +570,80 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		84080F4A3063F45100DAFB4D /* Build configuration list for PBXNativeTarget "SoulMatesWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84080F4B3063F45100DAFB4D /* Debug */,
+				84080F4C3063F45100DAFB4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6910599E30650CB900C584DF /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.91.0;
+			};
+		};
+		694DC319305A60670042AF0F /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+			traits = (
+			);
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6910599F30650CB900C584DF /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6910599E30650CB900C584DF /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCat;
+		};
+		691059A130650CB900C584DF /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6910599E30650CB900C584DF /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCatUI;
+		};
+		694DC31A305A60670042AF0F /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 694DC319305A60670042AF0F /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		694DC31C305A60670042AF0F /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 694DC319305A60670042AF0F /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		694DC31E305A60670042AF0F /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 694DC319305A60670042AF0F /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		694DC320305A60670042AF0F /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 694DC319305A60670042AF0F /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		694DC322305A60670042AF0F /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 694DC319305A60670042AF0F /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		694DC324305A60670042AF0F /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 694DC319305A60670042AF0F /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 69CBB50830480CF100ED921E /* Project object */;
 }
