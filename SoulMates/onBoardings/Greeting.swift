@@ -117,7 +117,7 @@ struct Greeting: View {
 
                             // Direct login link
                             NavigationLink {
-                                LogIn_onboarding()
+                                AuthGateway(startInLogin: true)
                             } label: {
                                 HStack(spacing: 6) {
                                     Text("Already have an account?")

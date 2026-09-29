@@ -9,6 +9,7 @@ struct Number_LogIn: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var storage: AppStorageManager
     let initialPhone: String
+    var onSwitchToSignUp: () -> Void = {}
 
     @State private var phone: String = ""
     @State private var password: String = ""
@@ -25,8 +26,9 @@ struct Number_LogIn: View {
         case phone, password
     }
 
-    init(initialPhone: String = "") {
+    init(initialPhone: String = "", onSwitchToSignUp: @escaping () -> Void = {}) {
         self.initialPhone = initialPhone
+        self.onSwitchToSignUp = onSwitchToSignUp
     }
 
     private var isFormInvalid: Bool {
@@ -66,7 +68,7 @@ struct Number_LogIn: View {
             .ignoresSafeArea()
 
             VStack(spacing: 0) {
-                // Top Custom Back Button
+                // Top Custom Back Button — pops back to whatever screen (Greeting or Onboarding) pushed AuthGateway
                 HStack {
                     Button {
                         dismiss()
@@ -159,8 +161,9 @@ struct Number_LogIn: View {
                         Text(loginErrorMessage)
                     }
 
+                // Switch to Sign Up — now swaps content in place instead of dismissing
                 Button {
-                    dismiss()
+                    onSwitchToSignUp()
                 } label: {
                     HStack(spacing: 6) {
                         Text("Don't have an account?")
@@ -217,4 +220,4 @@ struct Number_LogIn: View {
             }
         }
     }
-}
+} 

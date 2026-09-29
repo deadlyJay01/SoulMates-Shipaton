@@ -86,7 +86,7 @@ struct OnboardingFlowContainerView: View {
                 }
             }
             .navigationDestination(isPresented: $navigateToSignUp) {
-                Number_SignUp()
+                AuthGateway(startInLogin: false)
             }
         }
         .preferredColorScheme(.dark)

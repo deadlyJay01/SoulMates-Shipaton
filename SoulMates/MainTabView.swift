@@ -211,4 +211,4 @@ private struct MusicAlertsModifier: ViewModifier {
                 Button("OK", role: .cancel) { }
             }
     }
-}
+} 

@@ -8,6 +8,7 @@ import SwiftUI
 struct Number_SignUp: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var storage: AppStorageManager
+    var onSwitchToLogin: (_ phone: String) -> Void = { _ in }
 
     @State private var TempName = ""
     @State private var phone: String = ""
@@ -17,7 +18,6 @@ struct Number_SignUp: View {
     @State private var animateContent: Bool = false
     @State private var animateBackground: Bool = false
     @State private var isSubmitting = false
-    @State private var navigateToLogin = false
     @State private var errorMessage: String?
 
     enum Field {
@@ -61,7 +61,7 @@ struct Number_SignUp: View {
             .ignoresSafeArea()
 
             VStack(spacing: 0) {
-                // Top Custom Back Button
+                // Top Custom Back Button — pops back to whatever screen (Greeting or Onboarding) pushed AuthGateway
                 HStack {
                     Button {
                         dismiss()
@@ -161,8 +161,9 @@ struct Number_SignUp: View {
                     .animation(.spring(response: 0.5, dampingFraction: 0.8).delay(0.44), value: animateContent)
                     .padding(.bottom, 34)
 
-                NavigationLink {
-                    Number_LogIn()
+                // Switch to Login — now swaps content in place instead of pushing a new screen
+                Button {
+                    onSwitchToLogin(phone)
                 } label: {
                     HStack(spacing: 6) {
                         Text("Already have an account?")
@@ -182,15 +183,12 @@ struct Number_SignUp: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        .navigationDestination(isPresented: $navigateToLogin) {
-            Number_LogIn(initialPhone: phone)
-        }
         .onAppear {
             fetchName()
             animateContent = true
             animateBackground = true
         }
-        .alert("Couldn’t Create Account", isPresented: Binding(
+        .alert("Couldn't Create Account", isPresented: Binding(
             get: { errorMessage != nil },
             set: { if !$0 { errorMessage = nil } }
         )) {
@@ -220,7 +218,7 @@ struct Number_SignUp: View {
                         storage.isLoggedIn = true
                         storage.syncAllWidgetData()
                     case .existingAccount:
-                        navigateToLogin = true
+                        onSwitchToLogin(phone)
                     }
                 }
             } catch {
