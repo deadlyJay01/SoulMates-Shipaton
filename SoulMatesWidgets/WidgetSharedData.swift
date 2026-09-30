@@ -18,7 +18,7 @@ public struct WidgetSharedData {
         FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupId)
     }
 
-    // MARK: - Session & Partner State
+    // Session & Partner State
     public static func saveSessionState(isLoggedIn: Bool, hasPartner: Bool) {
         guard let defaults = sharedDefaults else { return }
         defaults.set(isLoggedIn, forKey: "widget_is_logged_in")
@@ -32,7 +32,7 @@ public struct WidgetSharedData {
         return (loggedIn, partnered)
     }
 
-    // MARK: - Days & Relationship Data
+    // Days & Relationship Data
     public static func saveTotalDays(_ days: Int) {
             sharedDefaults?.set(days, forKey: "widget_total_days")
             WidgetCenter.shared.reloadAllTimelines()
@@ -77,7 +77,7 @@ public struct WidgetSharedData {
         return (rType, dist, uCity, pCity)
     }
 
-    // MARK: - Images (Disk Container)
+    // Disk Container)
     public static let partnerSelfieFile = "partner_latest_selfie.jpg"
     public static let myAvatarFile = "user_avatar.jpg"
     public static let partnerAvatarFile = "partner_avatar.jpg"
@@ -97,7 +97,7 @@ public struct WidgetSharedData {
         return UIImage(data: data)
     }
 
-    // MARK: - Complete Wipe on Logout / Switch Accounts
+    // Complete Wipe on Logout / Switch Accounts
     public static func clearAllWidgetData() {
         // 1. Wipe all keys from shared UserDefaults
         if let defaults = sharedDefaults {

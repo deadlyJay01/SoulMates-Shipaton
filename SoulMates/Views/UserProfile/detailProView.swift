@@ -117,7 +117,7 @@ struct detailProView: View {
             onBoarding_Background()
                 .ignoresSafeArea()
 
-            // MARK: - Single-Screen Container (No ScrollView)
+            // Single-Screen Container (No ScrollView)
             VStack(spacing: 0) {
                 Spacer(minLength: 4)
 
@@ -302,7 +302,7 @@ struct detailProView: View {
                 isPulsing = true
             }
         }
-        // MARK: - Informational Sheets
+        // Informational Sheets
         .sheet(isPresented: $showRestoreSheet) {
             LegalDocView(
                 title: "Restore Purchases",
@@ -328,7 +328,7 @@ struct detailProView: View {
         }
     }
 
-    // MARK: - Compact Feature Row
+    // Compact Feature Row
     private func featureRow(icon: String, title: String, subtitle: String) -> some View {
         HStack(spacing: 12) {
             ZStack {
@@ -359,7 +359,7 @@ struct detailProView: View {
         }
     }
 
-    // MARK: - Plan Card (split out of body so Swift can type-check it quickly)
+    // Plan Card (split out of body so Swift can type-check it quickly)
     @ViewBuilder
     private func planCardButton(for plan: ProPlanType) -> some View {
         let isSelected = selectedPlan == plan
@@ -429,7 +429,7 @@ struct detailProView: View {
     }
 }
 
-// MARK: - Simple Legal / Info Sheet
+// Simple Legal / Info Sheet
 private struct LegalDocView: View {
     @Environment(\.dismiss) private var dismiss
     let title: String

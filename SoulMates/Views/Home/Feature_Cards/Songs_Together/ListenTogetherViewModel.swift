@@ -47,7 +47,7 @@ final class ListenTogetherViewModel: ObservableObject {
         client.auth.currentUser?.id
     }
 
-    // MARK: - Payloads for Type-Safe Updates
+    // Payloads for Type-Safe Updates
     private struct SessionUpdatePayload: Codable {
         let track_id: Int
         let is_playing: Bool
@@ -57,7 +57,7 @@ final class ListenTogetherViewModel: ObservableObject {
         let updated_at: String
     }
 
-    // MARK: - Lifecycle
+    // Lifecycle
     func start() async {
         guard let cid = await SupabaseService.shared.fetchCoupleId(),
               let myUID = currentUserId else { return }
@@ -89,7 +89,7 @@ final class ListenTogetherViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Audio Engine
+    // Audio Engine
     private func setupAudio(for track: SongTrack) {
         if let url = Bundle.main.url(forResource: track.audioFileName, withExtension: track.audioFileExtension) {
             do {
@@ -116,7 +116,7 @@ final class ListenTogetherViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Pair / Unpair Flow
+    // Pair / Unpair Flow
     func handlePairUnpairButton(actorName: String) async {
         if isPaired {
             await endListening(actorName: actorName)
@@ -125,7 +125,7 @@ final class ListenTogetherViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Row Tap Dispatcher
+    // Row Tap Dispatcher
     func handleRowPlayTap(track: SongTrack, actorName: String) async {
         guard isPaired else {
             // Requirement 1: Prompt alert if unpaired
@@ -140,7 +140,7 @@ final class ListenTogetherViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Synchronized Actions
+    // Synchronized Actions
     func requestListenTogether(track: SongTrack, myName: String) async {
         guard let cid = coupleId, let myUID = currentUserId, let pId = partnerId else { return }
         self.currentTrack = track
@@ -333,7 +333,7 @@ final class ListenTogetherViewModel: ObservableObject {
             .execute()
     }
 
-    // MARK: - Liked Songs
+    // Liked Songs
     func fetchLikedSongs() async {
         guard let cid = coupleId else { return }
         let records: [CoupleLikedSongRecord] = (try? await client
@@ -369,7 +369,7 @@ final class ListenTogetherViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Realtime Sync Subscription
+    // Realtime Sync Subscription
     private func checkExistingSession(initialLoad: Bool = false) async {
         guard let cid = coupleId else { return }
         do {

@@ -56,18 +56,18 @@ struct MainTabView: View {
                     Image(systemName: "bubble.left.and.bubble.right.fill")
                 }
                 .tag(1)
+            
+            CoupleSelfieView()
+                .tabItem {
+                    Image(systemName: "camera.fill")
+                }
+                .tag(3)
 
             Games()
                 .tabItem {
                     Image(systemName: "gamecontroller.fill")
                 }
                 .tag(2)
-
-            CoupleSelfieView()
-                .tabItem {
-                    Image(systemName: "camera.fill")
-                }
-                .tag(3)
 
             UserProfile()
                 .tabItem {
@@ -111,7 +111,7 @@ struct MainTabView: View {
             )
     }
 
-    // MARK: - Deep Link Handler
+    // Deep Link Handler
     private func handleDeepLink(_ url: URL) {
         // Widget 1 tap -> open the Selfie tab directly
         if url == WidgetSharedData.deepLinkSelfieURL || (url.scheme == "soulmates" && url.host == "couple-selfie") {
@@ -119,12 +119,12 @@ struct MainTabView: View {
         }
     }
 
-    // MARK: - Widget Synchronization Helper
+    // Widget Synchronization Helper
     private func syncWidgets() {
         WidgetSharedData.saveTotalDays(storage.totalDaysTogether)
     }
 
-    // MARK: - Instant Live Disconnect Listener
+    // Instant Live Disconnect Listener
     private func subscribeToCoupleDisconnection() async {
         guard let currentUID = SupabaseService.shared.client.auth.currentUser?.id else { return }
 
@@ -163,7 +163,7 @@ struct MainTabView: View {
     }
 }
 
-// MARK: - All the music-related alerts in one place
+// All the music-related alerts in one place
 private struct MusicAlertsModifier: ViewModifier {
     @ObservedObject var musicViewModel: ListenTogetherViewModel
     let actorName: String

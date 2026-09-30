@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-// MARK: - Simple Aesthetic Card
+// Card
 struct RelationCard: View {
     let icon: String
     let title: String

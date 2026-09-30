@@ -7,7 +7,7 @@ import SwiftUI
 import Combine
 import Supabase
 
-// MARK: - Reusable Unpaired Placeholder View
+// Reusable Unpaired Placeholder View
 struct UnpairedPlaceholderView: View {
     let title: String
     let subtitle: String
@@ -89,7 +89,7 @@ struct UnpairedPlaceholderView: View {
     }
 }
 
-// MARK: - Reusable Alert ViewModifier
+// Reusable Alert ViewModifier
 struct PartnerRequiredAlertModifier: ViewModifier {
     @Binding var isPresented: Bool
     let featureName: String

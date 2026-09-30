@@ -161,7 +161,7 @@ final class InvitePartnerViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Realtime Auto-Detection for Code Sharer
+    // Realtime Auto-Detection for Code Sharer
     private func subscribeToPairingUpdates(currentUID: UUID, storage: AppStorageManager) async {
         let channel = client.realtimeV2.channel("public:couples:\(currentUID.uuidString)")
         self.realtimeChannel = channel

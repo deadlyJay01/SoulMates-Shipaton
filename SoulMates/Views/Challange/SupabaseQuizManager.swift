@@ -55,7 +55,7 @@ final class SupabaseQuizManager: ObservableObject {
         loadFromLocalStorage()
     }
 
-    /// Fetches all quiz submissions for the couple
+    // Fetches all quiz submissions for the couple
     func syncCoupleQuizResponses() async {
         guard let currentUser = client.auth.currentUser else { return }
 
@@ -105,7 +105,7 @@ final class SupabaseQuizManager: ObservableObject {
         }
     }
 
-    /// Submits quiz answers to Supabase and updates local storage
+    // Submits quiz answers to Supabase and updates local storage
     func submitQuiz(gameID: String, answers: [SavedQuizAnswer]) async throws {
         guard let currentUser = client.auth.currentUser else { return }
 

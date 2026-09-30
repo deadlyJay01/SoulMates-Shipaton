@@ -48,7 +48,7 @@ final class AppStorageManager: ObservableObject {
     }
 
     // MARK: - Relationship Details
-    /// 0: None, 1: Close, 2: Long-Distance
+    // 0: None, 1: Close, 2: Long-Distance
     @AppStorage("relationshipType") var relationshipType: Int = 0 {
         didSet {
             objectWillChange.send()
@@ -118,7 +118,7 @@ final class AppStorageManager: ObservableObject {
     private var isSubscribedToCouple: Bool = false
     
     // MARK: - Pro & Trial Subscription State
-    /// True if THIS user physically made the purchase via RevenueCat
+    // True if THIS user physically made the purchase via RevenueCat
     @AppStorage("isProPurchaser") var isProPurchaser: Bool = false {
         didSet {
             objectWillChange.send()
@@ -126,7 +126,7 @@ final class AppStorageManager: ObservableObject {
         }
     }
 
-    /// True if the connected couple relationship has active Pro sharing
+    // True if the connected couple relationship has active Pro sharing
     @AppStorage("isCouplePro") var isCouplePro: Bool = false {
         didSet {
             objectWillChange.send()
@@ -134,7 +134,7 @@ final class AppStorageManager: ObservableObject {
         }
     }
 
-    /// Overall Pro state: active if I bought it OR if my partner shared it
+    // Overall Pro state: active if I bought it OR if my partner shared it
     @AppStorage("isProUser") var isProUser: Bool = false {
         didSet { objectWillChange.send() }
     }
@@ -186,7 +186,7 @@ final class AppStorageManager: ObservableObject {
         let trial_start_timestamp: Double
     }
 
-    /// Syncs paid Pro status with Supabase profiles and couples tables
+    // Syncs paid Pro status with Supabase profiles and couples tables
     @MainActor
     func updateProStatus(isPro: Bool, expiryTimestamp: Double, planType: String = "") async {
         self.isProPurchaser = isPro

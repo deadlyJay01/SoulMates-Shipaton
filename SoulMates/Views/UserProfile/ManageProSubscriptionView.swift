@@ -4,7 +4,7 @@
 //
 
 import SwiftUI
-// MARK: - Non-Functional Pro Management Sheet
+// Pro Management Sheet
 struct ManageProSubscriptionView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var storage: AppStorageManager

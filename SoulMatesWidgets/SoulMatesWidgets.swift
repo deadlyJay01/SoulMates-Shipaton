@@ -8,7 +8,7 @@
 import WidgetKit
 import SwiftUI
 
-// MARK: - Timeline Entry
+// Timeline Entry
 struct SoulMatesTimelineEntry: TimelineEntry {
     let date: Date
     let isLoggedIn: Bool
@@ -35,7 +35,7 @@ struct SoulMatesTimelineEntry: TimelineEntry {
     }
 }
 
-// MARK: - Timeline Provider
+// Timeline Provider
 struct SoulMatesWidgetProvider: TimelineProvider {
     func placeholder(in context: Context) -> SoulMatesTimelineEntry {
         SoulMatesTimelineEntry(
@@ -95,7 +95,7 @@ struct SoulMatesWidgetProvider: TimelineProvider {
     }
 }
 
-// MARK: - Reusable Placeholder View for Logged Out / No Partner States
+// Reusable Placeholder View for Logged Out / No Partner States
 struct WidgetSessionStateView: View {
     let icon: String
     let title: String
@@ -136,7 +136,7 @@ struct WidgetSessionStateView: View {
     }
 }
 
-// MARK: - Dotted Line
+// Dotted Line
 struct DottedLineShape: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
@@ -146,9 +146,8 @@ struct DottedLineShape: Shape {
     }
 }
 
-// ========================================================
 // MARK: - 1. PARTNER SELFIE WIDGET (.small, .large)
-// ========================================================
+// =================================================
 struct PartnerSelfieWidgetView: View {
     let entry: SoulMatesTimelineEntry
     @Environment(\.widgetFamily) var family
@@ -240,9 +239,10 @@ struct PartnerSelfieWidget: Widget {
     }
 }
 
-// ========================================================
+
 // MARK: - 2. COUPLE CONNECTION & DISTANCE WIDGET (.small, .medium)
-// ========================================================
+// ===============================================================
+
 struct CoupleCounterWidgetView: View {
     let entry: SoulMatesTimelineEntry
     @Environment(\.widgetFamily) var family
@@ -423,9 +423,9 @@ struct CoupleCounterWidget: Widget {
     }
 }
 
-// ========================================================
+
 // MARK: - 3. MINIMAL DAYS & DISTANCE COUNTER (.small)
-// ========================================================
+// ===================================================
 struct MinimalDaysCounterWidgetView: View {
     let entry: SoulMatesTimelineEntry
 
@@ -507,9 +507,8 @@ struct MinimalDaysCounterWidget: Widget {
     }
 }
 
-// ========================================================
 // MARK: - WIDGET BUNDLE ROOT
-// ========================================================
+// ==========================
 @main
 struct SoulMatesWidgetsBundle: WidgetBundle {
     var body: some Widget {

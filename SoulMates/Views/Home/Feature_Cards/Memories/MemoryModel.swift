@@ -45,7 +45,7 @@ struct CoupleMemory: Identifiable, Codable {
 // MARK: - Supabase Service Extension for Memories
 extension SupabaseService {
     
-    /// Fetches the user's active couple ID
+    // Fetches the user's active couple ID
     func fetchCurrentCoupleId() async throws -> UUID? {
         guard let currentUID = client.auth.currentUser?.id else { return nil }
         
@@ -64,7 +64,7 @@ extension SupabaseService {
         return results.first?.id
     }
 
-    /// Fetches all memories sorted chronologically by memory_date descending
+    // Fetches all memories sorted chronologically by memory_date descending
     func fetchMemories(for coupleId: UUID) async throws -> [CoupleMemory] {
         return try await client
             .from("memories")
@@ -75,7 +75,7 @@ extension SupabaseService {
             .value
     }
     
-    /// Uploads an array of UIImages and returns the public URLs
+    // Uploads an array of UIImages and returns the public URLs
     func uploadMemoryPhotos(images: [UIImage], coupleId: UUID) async throws -> [String] {
         var uploadedURLs: [String] = []
         
@@ -97,7 +97,7 @@ extension SupabaseService {
         return uploadedURLs
     }
 
-    /// Inserts a new memory record (Read-only once stored)
+    // Inserts a new memory record (Read-only once stored)
     func createMemory(
         coupleId: UUID,
         uploaderName: String,
@@ -135,7 +135,7 @@ extension SupabaseService {
             .execute()
     }
 
-    /// Permanently deletes a single memory
+    // Permanently deletes a single memory
     func deleteMemory(id: UUID) async throws {
         try await client
             .from("memories")

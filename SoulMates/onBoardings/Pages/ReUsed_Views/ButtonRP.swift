@@ -7,38 +7,6 @@
 
 import SwiftUI
 
-// myy
-//struct ButtonRP: View {
-//    let Textt : String
-//    var body: some View {
-//        ZStack{
-//            LinearGradient(colors: [.purple,.red], startPoint: .leading, endPoint: .trailing)
-//                .opacity(0.7)
-//                
-//            Text("\(Textt)")
-//            
-//                .foregroundStyle(.white)
-//                .font(.title2)
-//                .fontWeight(.bold)
-//                .fontDesign(.rounded)
-//                .foregroundStyle(.white)
-//        }
-//        .frame(width: 250, height: 60)
-//        .cornerRadius(20)
-//        .shadow(radius: 30)
-//        
-//    }
-//}
-
-
-
-
-
-
-
-//                                               AI - 1
-import SwiftUI
-
 struct ButtonRP<Destination: View>: View {
     var Textt: String
     var destination: Destination? = nil
@@ -75,7 +43,7 @@ struct ButtonRP<Destination: View>: View {
         }
     }
     
-    // MARK: - Extracted Visual Label
+    //Extracted Visual Label
     private var buttonContent: some View {
         HStack(spacing: 10) {
             Text(Textt)
@@ -122,7 +90,7 @@ struct ButtonRP<Destination: View>: View {
     }
 }
 
-// MARK: - Shared Scale Animation
+//Shared Scale Animation
 struct ScaleButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label

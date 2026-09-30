@@ -113,7 +113,7 @@ struct UserProfile: View {
             } message: {
                 Text("Distance tracking is only available when your relationship type is set to Long-Distance.")
             }
-            // MARK: - Classic Allow Permission Alert
+            // Classic Allow Permission Alert
             .alert("Allow \(activePermission?.rawValue ?? "Permission")?", isPresented: $showAllowAlert) {
                 Button("Cancel", role: .cancel) { }
                 Button("Allow") {
@@ -122,7 +122,7 @@ struct UserProfile: View {
             } message: {
                 Text(activePermission?.enableMessage ?? "SoulMates requires this permission to enable the feature.")
             }
-            // MARK: - Confirm Turn Off Permission Alert
+            // Confirm Turn Off Permission Alert
             .alert("Turn Off \(activePermission?.rawValue ?? "Permission")?", isPresented: $showDisableAlert) {
                 Button("Cancel", role: .cancel) { }
                 Button("Confirm", role: .destructive) {
@@ -193,7 +193,7 @@ struct UserProfile: View {
         }
     }
 
-    // MARK: - Subviews
+    // Subviews
 
     private var headerSection: some View {
         HStack {
@@ -251,10 +251,19 @@ struct UserProfile: View {
                     .foregroundStyle(.white)
 
                 if storage.isProUser {
-                    Image(systemName: "star.fill")
-                        .font(.system(size: 18, weight: .bold))
-                        .foregroundStyle(Color(red: 1.0, green: 0.84, blue: 0.0))
-                        .shadow(color: Color.yellow.opacity(0.45), radius: 6)
+                    Text("PRO")
+                        .font(.system(size: 11, weight: .heavy, design: .rounded))
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 4)
+                        .background(
+                            Capsule()
+                                .fill(Color.black)
+                                .overlay(
+                                    Capsule()
+                                        .stroke(Color(red: 0.72, green: 0.53, blue: 0.04), lineWidth: 1.5)
+                                )
+                        )
                 }
             }
             

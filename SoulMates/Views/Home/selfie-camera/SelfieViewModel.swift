@@ -33,7 +33,7 @@ final class SelfieViewModel: ObservableObject {
         client.auth.currentUser?.id
     }
 
-    // MARK: - Initial Setup
+    // Initial Setup
     func start() async {
         isLoading = true
         guard let cId = await SupabaseService.shared.fetchCoupleId(),
@@ -48,7 +48,7 @@ final class SelfieViewModel: ObservableObject {
         isLoading = false
     }
 
-    // MARK: - Isolated Fetch (Never destroys and recreates channels)
+    // Isolated Fetch (Never destroys and recreates channels)
     func fetchSelfiesOnly() async {
         guard let cId = self.coupleId, let myUID = currentUserId else { return }
 
@@ -127,7 +127,7 @@ final class SelfieViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Upload (Handles First Upload & Photo Updates)
+    // Upload (Handles First Upload & Photo Updates)
     func uploadSelfie(image: UIImage, caption: String) async -> Bool {
         guard let coupleId = self.coupleId,
               let myUID = currentUserId,
@@ -231,7 +231,7 @@ final class SelfieViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Realtime Subscriptions (Guarded Single Registration)
+    // Realtime Subscriptions (Guarded Single Registration)
     private func subscribeToRealtimeChannels(coupleId: UUID, myUID: UUID) async {
         guard !isSubscribed else { return }
         isSubscribed = true

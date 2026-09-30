@@ -78,7 +78,7 @@ struct Third_Home: View {
                         .cornerRadius(10)
                     }
 
-                    // MARK: 2. Listen Songs
+                    // Listen Songs
                     Group {
                         if hasPartner {
                             NavigationLink {
@@ -98,7 +98,7 @@ struct Third_Home: View {
                         }
                     }
 
-                    // MARK: 3. Together
+                    // Together
                     ZStack {
                         Image("tg3")
                             .resizable()

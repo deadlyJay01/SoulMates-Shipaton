@@ -20,10 +20,7 @@ struct CoupleSelfieView: View {
     @State private var pendingCaption: String = ""
 
     // Modals
-    // NOTE: the live camera no longer uses any of this — it's presented and
-    // dismissed with plain UIKit calls from `presentLiveCameraFlow()` below,
-    // completely outside SwiftUI's modal system. `showCropAndConfirm` now
-    // only drives the Photo Library crop flow.
+    
     @State private var showSourceDialog: Bool = false
     @State private var showPhotoLibrary: Bool = false
     @State private var showCropAndConfirm: Bool = false
@@ -104,11 +101,8 @@ struct CoupleSelfieView: View {
                 Text("SoulMates requires camera access so you can take and share daily snapshots with your partner. Please allow access in Settings.")
             }
             .photosPicker(isPresented: $showPhotoLibrary, selection: $selectedItem, matching: .images)
-            // MARK: - Photo Library flow only (crop + confirm)
-            // The live camera is NOT presented through here anymore — see
-            // `presentLiveCameraFlow()`. Keeping the camera fully outside
-            // SwiftUI's `fullScreenCover`/state system is what actually fixed
-            // the black screen freeze.
+            // Photo Library flow only (crop + confirm)
+           
             .fullScreenCover(isPresented: $showCropAndConfirm) {
                 if let rawImage = imageToProcess {
                     SelfieCropAndConfirmFlowView(
@@ -160,7 +154,7 @@ struct CoupleSelfieView: View {
         }
     }
 
-    // MARK: - Safe Flow Triggers
+    // Safe Flow Triggers
 
     private func handlePhotoSelection(_ item: PhotosPickerItem?) {
         guard let item = item else { return }
@@ -177,7 +171,7 @@ struct CoupleSelfieView: View {
         }
     }
 
-    // MARK: - Widget Synchronization
+    // Widget Synchronization
     private func syncPartnerSelfieToWidget() {
         guard let urlString = viewModel.partnerSelfie?.imageUrl,
               let url = URL(string: urlString) else { return }
@@ -194,7 +188,7 @@ struct CoupleSelfieView: View {
         }
     }
 
-    // MARK: - Camera Permission Handler
+    // Camera Permission Handler
     private func handleCameraTap() {
         let status = AVCaptureDevice.authorizationStatus(for: .video)
         switch status {
@@ -217,20 +211,7 @@ struct CoupleSelfieView: View {
             break
         }
     }
-
-    /// Presents the entire live-camera-to-upload flow with plain, direct UIKit
-    /// calls (`present`/`dismiss`), completely bypassing SwiftUI's own modal
-    /// system (`fullScreenCover`, `confirmationDialog`, etc).
-    ///
-    /// Every previous attempt at fixing the black-screen freeze kept the camera
-    /// inside SwiftUI's declarative presentation system in some form, and it
-    /// kept freezing on your device regardless of the exact shape. Going fully
-    /// imperative removes SwiftUI from the picture for this one flow, so there
-    /// is nothing left for it to race against — not the confirmation dialog
-    /// closing, not another cover opening, nothing.
-    ///
-    /// Per your request, this flow also skips cropping entirely: camera → photo
-    /// → caption/upload sheet, using the photo exactly as the camera shot it.
+    
     private func presentLiveCameraFlow() {
         guard let presentingController = UIApplication.shared.topMostViewController() else { return }
 
@@ -245,7 +226,7 @@ struct CoupleSelfieView: View {
         presentingController.present(flow, animated: true)
     }
 
-    // MARK: - Subviews
+    // Subviews
 
     private var unpairedView: some View {
         VStack(spacing: 20) {
@@ -643,7 +624,7 @@ struct CoupleSelfieView: View {
         }
     }
 
-    // MARK: - Save to Memories
+    // Save to Memories
     private func saveBothToMemories() {
         guard let myUrl = viewModel.mySelfie?.imageUrl,
               let partnerUrl = viewModel.partnerSelfie?.imageUrl else { return }
@@ -683,9 +664,9 @@ struct CoupleSelfieView: View {
     }
 }
 
-// ========================================================
-// MARK: - UNIFIED CROP & CONFIRM FLOW CONTAINER
-// ========================================================
+
+// UNIFIED CROP & CONFIRM FLOW CONTAINER
+
 struct SelfieCropAndConfirmFlowView: View {
     let originalImage: UIImage
     @Binding var caption: String
@@ -737,7 +718,7 @@ struct SelfieCropAndConfirmFlowView: View {
     }
 }
 
-// MARK: - Confirmation View (Step 2 inside container)
+// Confirmation View (Step 2 inside container)
 private struct PhotoConfirmationView: View {
     let image: UIImage
     @Binding var caption: String
@@ -866,22 +847,9 @@ private struct PhotoConfirmationView: View {
     }
 }
 
-// ========================================================
-// MARK: - Live Camera Flow (fully UIKit, no SwiftUI modal involved)
-// ========================================================
-//
-// This entire flow — camera → caption/upload sheet — is a plain
-// UIViewController tree presented and dismissed with direct `present`/
-// `dismiss` calls. It does not touch `.fullScreenCover`, `.sheet`, or any
-// other SwiftUI presentation modifier. That's the actual fix for the freeze:
-// every earlier attempt kept some part of the camera flow wired through
-// SwiftUI's own presentation state, and on this device that state machine
-// kept colliding with the camera's own transition (or with the
-// confirmationDialog's), leaving the screen permanently black. Plain UIKit
-// calls have exactly one thing presented and one thing dismissing at a time.
-//
-// No cropping here by design — the photo is used exactly as the camera
-// captured it.
+
+// Live Camera Flow (fully UIKit, no SwiftUI modal involved)
+
 final class LiveCameraFlowController: UIViewController {
     var partnerName: String = ""
     var isUpdating: Bool = false
@@ -917,9 +885,6 @@ final class LiveCameraFlowController: UIViewController {
         present(picker, animated: true)
     }
 
-    /// Called once the camera photo comes back. `fixedOrientation()` (a small
-    /// redraw) runs off the main thread so the UI stays responsive, then the
-    /// caption/upload screen is presented directly on top of this controller.
     private func showConfirmation(with rawImage: UIImage) {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             let fixedImage = rawImage.fixedOrientation()
@@ -954,8 +919,6 @@ final class LiveCameraFlowController: UIViewController {
         }
     }
 
-    /// Dismisses this entire flow (whatever is currently on top, all the way
-    /// back to the screen that was showing before "Live Camera" was tapped).
     private func finish() {
         presentingViewController?.dismiss(animated: true)
     }
@@ -964,8 +927,6 @@ final class LiveCameraFlowController: UIViewController {
 extension LiveCameraFlowController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         let image = info[.originalImage] as? UIImage
-        // Wait for the camera's own dismissal to fully complete before
-        // presenting anything else — this ordering is what avoids the freeze.
         picker.dismiss(animated: true) { [weak self] in
             guard let self else { return }
             if let image = image {
@@ -983,16 +944,12 @@ extension LiveCameraFlowController: UIImagePickerControllerDelegate, UINavigatio
     }
 }
 
-/// Caption + upload screen shown after a live camera capture. Same look as
-/// the Photo Library flow's confirmation step, minus the crop step and minus
-/// any dependency on the parent SwiftUI view's state.
+
 private struct LiveCaptureConfirmView: View {
     let image: UIImage
     let isUpdating: Bool
     let partnerName: String
     let onCancel: () -> Void
-    /// caption, setUploading — call setUploading(false) if the upload failed
-    /// so the button can be re-enabled.
     let onConfirm: (String, @escaping (Bool) -> Void) -> Void
 
     @State private var caption: String = ""
@@ -1108,7 +1065,7 @@ private struct LiveCaptureConfirmView: View {
     }
 }
 
-// MARK: - Finding the top-most view controller (needed to present LiveCameraFlowController)
+// Finding the top-most view controller (needed to present LiveCameraFlowController)
 private extension UIApplication {
     func topMostViewController() -> UIViewController? {
         let root = connectedScenes
@@ -1134,7 +1091,7 @@ private extension UIViewController {
     }
 }
 
-// MARK: - UIImage Orientation Normalizer
+// UIImage Orientation Normalizer
 private extension UIImage {
     func fixedOrientation() -> UIImage {
         if imageOrientation == .up { return self }

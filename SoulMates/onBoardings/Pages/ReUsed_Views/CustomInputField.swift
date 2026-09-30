@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// MARK: - High Contrast Frosted Input Field
+// Input Field
 struct CustomInputField: View {
     let icon: String
     let placeholder: String

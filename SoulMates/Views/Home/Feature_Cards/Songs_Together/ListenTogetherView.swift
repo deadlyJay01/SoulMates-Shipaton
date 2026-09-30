@@ -170,7 +170,7 @@ struct ListenTogetherView: View {
                 }
             }
 
-            // MARK: - Persistent Mini-Player Bar
+            // Persistent Mini-Player Bar
             if viewModel.isPaired || viewModel.isPlaying {
                 Button {
                     viewModel.isPlayerPresented = true
@@ -229,7 +229,7 @@ struct ListenTogetherView: View {
     }
 }
 
-// MARK: - Song Row Component
+// Song Row Component
 private struct SongRowItem: View {
     let track: SongTrack
     let isCurrentTrack: Bool

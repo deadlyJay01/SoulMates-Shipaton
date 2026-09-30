@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// MARK: - Sample Roadmap Node Model
+// Roadmap Node Model
 struct MemoryNode: Identifiable, Equatable {
     let id: Int
     let imageName: String
@@ -15,7 +15,7 @@ struct MemoryNode: Identifiable, Equatable {
     let dateText: String
     let accentColor: Color
 }
-// MARK: - Styled Photo Milestone Card (Stable Text + Smooth Drift)
+// Styled Photo Milestone Card (Stable Text + Smooth Drift)
 struct MilestonePhotoCard: View {
     let node: MemoryNode
     

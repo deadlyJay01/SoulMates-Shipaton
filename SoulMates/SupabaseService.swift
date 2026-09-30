@@ -28,7 +28,7 @@ enum SupabaseServiceError: LocalizedError {
     }
 }
 
-/// Owns the authenticated Supabase client and the app's profile persistence.
+// Owns the authenticated Supabase client and the app's profile persistence.
 final class SupabaseService {
     static let shared = SupabaseService()
 
@@ -46,7 +46,7 @@ final class SupabaseService {
         )
     }
 
-    /// The app accepts a 10-digit Indian mobile number and adds +91 only for Supabase storage.
+    // The app accepts a 10-digit Indian mobile number and adds +91 only for Supabase storage.
     func normalizedPhone(_ phone: String) throws -> String {
         let digits = phone.filter(\.isNumber)
         guard digits.count == 10 else {
@@ -59,7 +59,7 @@ final class SupabaseService {
         "phone-\(phone.dropFirst())@soulmates.app"
     }
 
-    /// Creates an account from the mobile-number/password fields and writes the onboarding profile.
+    // Creates an account from the mobile-number/password fields and writes the onboarding profile.
     func signUpAndSaveProfile(phone: String, password: String, storage: AppStorageManager) async throws -> SignUpResult {
         let normalizedPhone = try normalizedPhone(phone)
         let response: AuthResponse
@@ -92,7 +92,7 @@ final class SupabaseService {
         return .profileSaved
     }
 
-    /// Logs in and completely syncs the authentic remote profile, overriding any onboarding draft values.
+    // Logs in and completely syncs the authentic remote profile, overriding any onboarding draft values.
     func signInAndLoadProfile(phone: String, password: String, storage: AppStorageManager) async throws {
         let normalizedPhone = try normalizedPhone(phone)
         let session = try await client.auth.signIn(email: authEmail(for: normalizedPhone), password: password)
@@ -126,7 +126,7 @@ final class SupabaseService {
         }
     }
 
-    /// Uploads profile image with a timestamped path to bust cache and trigger Postgres updates
+    // Uploads profile image with a timestamped path to bust cache and trigger Postgres updates
     private func uploadProfileImageIfNeeded(userID: UUID, storage: AppStorageManager) async throws -> String? {
         guard storage.hasProfileImage, !storage.profileImageData.isEmpty else { return nil }
 
@@ -173,7 +173,7 @@ final class SupabaseService {
                 storage.clearAllSessionData()
             }
         }
-    /// Updates the user profile, uploads the fresh image, and pushes new path to Supabase
+    // Updates the user profile, uploads the fresh image, and pushes new path to Supabase
     func updateProfile(name: String, gender: Int, relationshipType: Int, storage: AppStorageManager) async throws {
         guard let currentUID = client.auth.currentUser?.id else { return }
 
@@ -209,7 +209,7 @@ final class SupabaseService {
     }
 }
 
-// MARK: - Decodable Profile Model (Fully Null-Safe)
+// Decodable Profile Model (Fully Null-Safe)
 private struct SoulMatesProfile: Codable {
     let id: UUID
     let userName: String?
@@ -250,7 +250,7 @@ enum SignUpResult {
     case existingAccount
 }
 
-// MARK: - Image Compression Helper
+// Image Compression Helper
 private extension UIImage {
     func normalizedJPEGData(compressionQuality: CGFloat = 0.8) -> Data? {
         let format = UIGraphicsImageRendererFormat()
@@ -265,7 +265,7 @@ private extension UIImage {
     }
 }
 
-// MARK: - Couple Note Model
+// Couple Note Model
 struct CoupleNoteRecord: Codable, Identifiable {
     var id: UUID?
     let coupleId: UUID
@@ -338,7 +338,7 @@ extension SupabaseService {
             .execute()
     }
 
-    // MARK: - Break Connection Method
+    // Break Connection Method
         func breakConnection(storage: AppStorageManager) async throws {
             // 1. Call atomic deletion RPC in database
             try await client.rpc("break_couple_connection").execute()
@@ -359,7 +359,7 @@ extension SupabaseService {
             }
         }
         
-        // MARK: - Verify & Live Sync Partner Status
+        // Verify & Live Sync Partner Status
         func verifyAndSyncPartnerStatus(storage: AppStorageManager) async {
             guard let currentUID = client.auth.currentUser?.id else { return }
 

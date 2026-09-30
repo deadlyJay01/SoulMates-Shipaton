@@ -35,14 +35,14 @@ struct DailyQuestionBank {
         DailyQuestion(id: 20, question: "In 10 years, where do you picture us living?", options: ["A cozy suburban house with a big garden", "A sleek high-rise condo with city views", "A peaceful countryside cottage", "Traveling the world living in different cities"])
     ]
 
-    /// Offsets the calendar by 5 hours so the new question activates at 5:00 AM
+    // Offsets the calendar by 5 hours so the new question activates at 5:00 AM
     private static func adjusted5AMDate(_ date: Date = Date()) -> Date {
         // Subtract 5 hours (5 * 3600 seconds)
         // e.g. 4:59 AM on Sept 22 belongs to Sept 21. 5:00 AM on Sept 22 shifts to Sept 22.
         date.addingTimeInterval(-5 * 3600)
     }
 
-    /// Pick the question for today (resets at 5:00 AM)
+    // Pick the question for today (resets at 5:00 AM)
     static func questionForDate(_ date: Date = Date()) -> DailyQuestion {
         let adjusted = adjusted5AMDate(date)
         let calendar = Calendar.current
@@ -51,7 +51,7 @@ struct DailyQuestionBank {
         return questions[index]
     }
 
-    /// Date key format (e.g., "2026-09-21") reset at 5:00 AM
+    // Date key format (e.g., "2026-09-21") reset at 5:00 AM
     static func dateKey(for date: Date = Date()) -> String {
         let adjusted = adjusted5AMDate(date)
         let formatter = DateFormatter()
