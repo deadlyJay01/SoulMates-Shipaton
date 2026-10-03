@@ -1,5 +1,7 @@
 # 💕 SoulMates
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 **A private space, made for two.**
 
 SoulMates is an iOS app built for couples — a single shared world where two partners can chat, share a daily selfie, listen to music in sync, save their memories, and stay close no matter the distance. Built entirely solo, from the SwiftUI interface to the Supabase backend.
@@ -110,6 +112,12 @@ A complete walkthrough of Soulmates is available on YouTube:
 - 🔔 Smarter daily nudges and reminders
 - 🎵 A bigger shared music library and collaborative playlists
 - 🌍 Multi-language support
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 ---
 
