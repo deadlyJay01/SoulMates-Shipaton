@@ -71,18 +71,33 @@ SoulMates is an iOS app built for couples — a single shared world where two pa
 
 ```
 SoulMates/
-├── onBoardings/          # Sign up, login, and onboarding flow
-├── Views/
-│   ├── Chat/              # Messaging + voice notes
+├── onBoardings/                  # User onboarding, authentication, & partner pairing flow
+│   ├── Pages/                    # Multi-step questionnaire views (P1–P8)
+│   ├── Invite partner/           # Code generation & pairing gatekeeper
+│   ├── LogIn/ & signUp P8/       # Phone OTP & credential authentication
+│   ├── AppStorage/               # AppStorageManager (session, tokens & local persistence)
+│   └── ReUsed_Views/             # Custom onboarding fields, buttons, & backgrounds
+│
+├── Views/                        # Main UI layer (Feature-based MVVM)
 │   ├── Home/
+│   │   ├── connect/              # Date trackers, shared canvas, & widget showcases
+│   │   ├── dailyQuestion/        # Daily Q&A prompts, streak tracking, & sync logic
 │   │   ├── Feature_Cards/
-│   │   │   └── Memories/  # Memories timeline & add sheet
-│   │   ├── selfie-camera/ # Soul Glimpse
-│   │   └── connect/
-│   └── UserProfile/
-├── SupabaseService.swift  # Backend service layer
-├── PartnerGuard.swift     # Reusable "partner required" gating
-└── MainTabView.swift      # Root tab navigation
+│   │   │   ├── Memories/         # Couple timeline, roadmap, & memory creation sheets
+│   │   │   └── Songs_Together/   # Synchronized music player & local track catalogue
+│   │   └── selfie-camera/        # Soul Glimpse dual/couple photo capture
+│   │
+│   ├── Chat/                     # Real-time messaging & audio voice notes
+│   ├── Challange/                # Interactive quizzes, scoring engine, & Supabase game sync
+│   └── UserProfile/              # Profile settings, distance/geo calculation, & Pro subscriptions
+│
+├── Services & Architecture/
+│   ├── SupabaseService.swift     # Core database client, authentication, & storage service
+│   ├── PurchaseManager.swift     # RevenueCat subscription management & paywall state
+│   ├── PartnerGuard.swift        # Route gating requiring an active paired partner
+│   └── MainTabView.swift         # Root navigation & tab coordination
+│
+└── SoulMatesWidgets/             # iOS WidgetKit extension for home screen couple updates
 ```
 
 ---
