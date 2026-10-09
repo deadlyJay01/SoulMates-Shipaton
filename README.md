@@ -67,6 +67,24 @@ SoulMates is an iOS app built for couples — a single shared world where two pa
 
 ---
 
+### Running on a Physical iPhone
+
+SoulMates includes a WidgetKit extension that uses an Apple App Group to share data between the main app and its widgets.
+
+When running the project on a physical iPhone using a different Apple Developer Team, additional signing configuration may be required.
+
+1. Open `SoulMates.xcodeproj` in Xcode.
+2. Select the `SoulMates` app target and the `SoulMatesWidgetsExtension` target.
+3. Under **Signing & Capabilities**, select your Apple Developer Team for both targets and enable **Automatically manage signing**.
+4. Register a new App Group under your Apple Developer account if you do not have access to the original project's App Group.
+5. Enable the same App Group for both targets.
+6. Update the App Group identifier in the project wherever it is referenced, including shared `UserDefaults` suite names or widget container access.
+7. Build and run the project again.
+
+**Note:** The App Group identifier must match across the app target, widget extension, and relevant code references. Changing it incorrectly may affect widget data sharing. Simulator builds may not require the same physical-device provisioning setup.
+
+---
+
 ## 📂 Project Structure
 
 ```
